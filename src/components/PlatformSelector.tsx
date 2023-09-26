@@ -13,8 +13,6 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
 
   if (error) return null;
 
-  console.log(data);
-
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
