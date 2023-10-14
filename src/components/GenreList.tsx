@@ -2,6 +2,7 @@ import useGenres from "../hooks/useGenres";
 import {
   Button,
   HStack,
+  Heading,
   Image,
   List,
   ListItem,
@@ -19,27 +20,32 @@ const GenreList = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <List>
-      {data?.results.map((genre) => (
-        <ListItem key={genre.id} paddingY="5px">
-          <HStack>
-            <Image
-              boxSize="32px"
-              borderRadius={8}
-              src={genre.image_background}
-            />
-            <Button
-              fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
-              onClick={() => setGenreId(genre.id)}
-              fontSize="lg"
-              variant="link"
-            >
-              {genre.name}
-            </Button>
-          </HStack>
-        </ListItem>
-      ))}
-    </List>
+    <>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genres
+      </Heading>
+      <List>
+        {data?.results.map((genre) => (
+          <ListItem key={genre.id} paddingY="5px">
+            <HStack>
+              <Image
+                boxSize="32px"
+                borderRadius={8}
+                src={genre.image_background}
+              />
+              <Button
+                fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
+                onClick={() => setGenreId(genre.id)}
+                fontSize="lg"
+                variant="link"
+              >
+                {genre.name}
+              </Button>
+            </HStack>
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
 };
 
